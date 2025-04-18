@@ -1,1 +1,11 @@
 .env
+.Rproj.user
+/omop/
+renv.lock
+/r/renv/
+.Rproj.user/
+.Rhistory
+.RData
+.Rprofile
+/data/
+.DS_Store
