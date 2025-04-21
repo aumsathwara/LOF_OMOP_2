@@ -1,2 +1,4 @@
 pandas
 dotenv
+rpy2
+psycopg2
