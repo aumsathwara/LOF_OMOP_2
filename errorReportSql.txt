@@ -1,0 +1,29 @@
+DBMS:
+postgresql
+
+Error:
+org.postgresql.util.PSQLException: ERROR: index "idx_ar_aid" does not exist
+
+SQL:
+drop index results.idx_ar_aid
+
+R version:
+R version 4.4.1 (2024-06-14 ucrt)
+
+Platform:
+x86_64-w64-mingw32
+
+Attached base packages:
+- tools
+- stats
+- graphics
+- grDevices
+- utils
+- datasets
+- methods
+- base
+
+Other attached packages:
+- Achilles (1.7.2)
+- DatabaseConnector (6.4.0)
+- ETLSyntheaBuilder (2.1)
