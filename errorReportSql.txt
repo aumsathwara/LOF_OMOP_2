@@ -1,0 +1,45 @@
+DBMS:
+postgresql
+
+Error:
+org.postgresql.util.PSQLException: ERROR: schema "synthea" does not exist
+  Position: 42
+
+SQL:
+--HINT DISTRIBUTE_ON_RANDOM
+create table synthea.allergies (
+"start"        date,
+stop         date,
+patient      varchar(1000),
+encounter    varchar(1000),
+code         varchar(100),
+system       varchar(255),
+description  varchar(255),
+"type"       varchar(255),
+category     varchar(255),
+reaction1    varchar(255),
+description1 varchar(255),
+severity1    varchar(255),
+reaction2    varchar(255),
+description2 varchar(255),
+severity2    varchar(255)
+)
+
+R version:
+R version 4.4.3 (2025-02-28)
+
+Platform:
+aarch64-apple-darwin20
+
+Attached base packages:
+- tools
+- stats
+- graphics
+- grDevices
+- utils
+- datasets
+- methods
+- base
+
+Other attached packages:
+- ETLSyntheaBuilder (2.1)

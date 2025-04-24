@@ -1,0 +1,4 @@
+.env
+omop
+/data/csv/
+.Renviron
