@@ -26,4 +26,3 @@ Attached base packages:
 Other attached packages:
 - Achilles (1.7.2)
 - DatabaseConnector (6.4.0)
-- ETLSyntheaBuilder (2.1)
