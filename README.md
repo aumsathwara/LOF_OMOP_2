@@ -39,10 +39,10 @@ This repository contains three tightly‑coupled pieces:
 | Requirement | Tested Version(s) | Notes |
 |-------------|-------------------|-------|
 | **Python**  | 3.9 – 3.12        | `rpy2` must match your local R build. |
-| **R**       | 4.3 or newer      | Set `R_HOME` or let the script fall back to `C:\Program Files\R\R-4.3.0`. citeturn0file1 |
-| **PostgreSQL** | 15+            | Database `omop` and super‑user `postgres`/`user` expected, but credentials are configurable. citeturn0file1 |
+| **R**       | 4.3 or newer      | Set `R_HOME` or let the script fall back to `C:\Program Files\R\R-4.3.0`. |
+| **PostgreSQL** | 15+            | Database `omop` and super‑user `postgres`/`user` expected, but credentials are configurable. |
 | **Synthea data** | any CSV dump | Place under `data/csv/` or change `CSV_PATH`. |
-| **Google Gemini API key** | – | Set env var `GEMINI_API_KEY`. citeturn0file0 |
+| **Google Gemini API key** | – | Set env var `GEMINI_API_KEY`. |
 | **Build tools** | gcc/clang & Rtools (Windows) | Needed to compile R packages such as `Rcpp` during the first run. |
 
 > **Windows users:** run everything from an *“x64 Native Tools Command Prompt for VS”* or WSL to ensure C toolchain availability.
@@ -110,8 +110,6 @@ The pipeline expects three schemas:
 
 `ensure_schemas_exist()` runs automatically before ETL to create them if missing. 
 
----
-
 ### 4.4 Using ATLAS
 
 Prerequisite: This guide relies on you already having installed ATLAS and WebAPI and have it running. See the guide below for information on how to do this.
@@ -127,8 +125,6 @@ For me, I mapped the following:
 But as the ATLAS setup is still a work in progress, it is important that you check your own schema and ensure that you map the correct one.
 
 Please see this link for more information on one way to do this: https://github.com/OHDSI/WebAPI/wiki/CDM-Configuration
-
----
 
 ## 4.5 Installing ATLAS and WebAPI
 
