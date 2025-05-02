@@ -4,17 +4,17 @@
 
 # Ignore the OMOP-related directories and files
 omop
-/data/csv/
-.vocabulary_ddl
-/etl_omop
-
+data/csv/
+vocabulary_ddl/
+etl_omop/
+R/
 
 
 # Ignore large files in vocabulary_csv and vocabulary_download directories
-/vocabulary_csv
+vocabulary_csv/
 
 # Ignore any .csv and .zip files in specific directories
-/Final Setup
+Final Setup/
 
 # Ignore output directory
-/output
+output/
