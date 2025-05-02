@@ -126,7 +126,7 @@ But as the ATLAS setup is still a work in progress, it is important that you che
 
 Please see this link for more information on one way to do this: https://github.com/OHDSI/WebAPI/wiki/CDM-Configuration
 
-## 4.5 Installing ATLAS and WebAPI
+### 4.5 Installing ATLAS and WebAPI
 
 Important notes: The webapi verison you use should be the same as the java version you use(WebAPI 8.5 and java 8 in our case)
 
@@ -223,7 +223,7 @@ If you use OMOPSync in academic work, please cite:
 ```bibtex
 @software{omopsync_2025,
   title        = {OMOPSync},
-  author       = {Aum Sathwara, Bjoern Sagstad, Harneet Dehiya, Vishnu Shanmugavel},
+  author       = {Merlin Simoes, Aum Sathwara, Bjoern Sagstad, Harneet Dehiya, Vishnu Shanmugavel},
   year         = 2025,
   url          = {https://github.com/aumsathwara/omopsync}
 }
