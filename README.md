@@ -39,10 +39,10 @@ This repository contains three tightly‑coupled pieces:
 | Requirement | Tested Version(s) | Notes |
 |-------------|-------------------|-------|
 | **Python**  | 3.9 – 3.12        | `rpy2` must match your local R build. |
-| **R**       | 4.3 or newer      | Set `R_HOME` or let the script fall back to `C:\Program Files\R\R-4.3.0`. citeturn0file1 |
-| **PostgreSQL** | 15+            | Database `omop` and super‑user `postgres`/`user` expected, but credentials are configurable. citeturn0file1 |
+| **R**       | 4.3 or newer      | Set `R_HOME` or let the script fall back to `C:\Program Files\R\R-4.3.0`. |
+| **PostgreSQL** | 15+            | Database `omop` and super‑user `postgres`/`user` expected, but credentials are configurable. |
 | **Synthea data** | any CSV dump | Place under `data/csv/` or change `CSV_PATH`. |
-| **Google Gemini API key** | – | Set env var `GEMINI_API_KEY`. citeturn0file0 |
+| **Google Gemini API key** | – | Set env var `GEMINI_API_KEY`. |
 | **Build tools** | gcc/clang & Rtools (Windows) | Needed to compile R packages such as `Rcpp` during the first run. |
 
 > **Windows users:** run everything from an *“x64 Native Tools Command Prompt for VS”* or WSL to ensure C toolchain availability.
@@ -109,6 +109,36 @@ The pipeline expects three schemas:
 * `results` – Achilles & DQD outputs  
 
 `ensure_schemas_exist()` runs automatically before ETL to create them if missing. 
+
+### 4.4 Using ATLAS
+
+Prerequisite: This guide relies on you already having installed ATLAS and WebAPI and have it running. See the guide below for information on how to do this.
+
+Since the etl script populates the Postgres database with new schemas, now we want to get those schemas and populate the ATLAS dashboard with them. Basically we need to set up the ATLAS dashboard with those schemas as "Data sources". There are multiple ways to do this(editing a datasources.json or running SQL scripts), but in essence what we want to do is to tell ATLAS what schemas to use for specific information. So it's important that the ETL script has been run at this point and created them in the DB.
+
+For me, I mapped the following:
+"cdmSchema": "cdm54",
+"resultsSchema": "results",
+"vocabSchema": "cdm54",
+"tempSchema": "tmp" # This one I created as an empty schema after the ETL script was run
+
+But as the ATLAS setup is still a work in progress, it is important that you check your own schema and ensure that you map the correct one.
+
+Please see this link for more information on one way to do this: https://github.com/OHDSI/WebAPI/wiki/CDM-Configuration
+
+### 4.5 Installing ATLAS and WebAPI
+
+Important notes: The webapi verison you use should be the same as the java version you use(WebAPI 8.5 and java 8 in our case)
+
+
+Useful links: 
+Atlas Setup - https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide
+WebAPI - https://github.com/OHDSI/WebAPI - Get the same version as the java you use. As you see later, 
+we have used java 8. So a direct link to that is https://apache.root.lu/tomcat/tomcat-8/v8.5.93/bin/
+WebAPI Installation - https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide
+PostgreSQL Setup - https://github.com/OHDSI/WebAPI/wiki/PostgreSQL-Installation-GuideWebAPI Java 8 - if you're using a Mac with an M series chip, you'll need to use Azul Zulu which can be downloaded here:
+https://www.azul.com/downloads/?version=java-8-lts&os=macos&architecture=arm-64-bit&package=jdk#zulu
+
 ---
 
 ## 5  Tool Catalogue
@@ -159,6 +189,7 @@ The loop continues until the user types `quit`.
 
 ---
 
+
 ## 8  Troubleshooting & FAQ
 
 | Symptom | Likely cause / fix |
@@ -192,7 +223,7 @@ If you use OMOPSync in academic work, please cite:
 ```bibtex
 @software{omopsync_2025,
   title        = {OMOPSync},
-  author       = {Aum Sathwara, Bjoern Sagstad, Harneet Dehiya, Vishnu Shanmugavel},
+  author       = {Merlin Simoes, Aum Sathwara, Bjoern Sagstad, Harneet Dehiya, Vishnu Shanmugavel},
   year         = 2025,
   url          = {https://github.com/aumsathwara/omopsync}
 }

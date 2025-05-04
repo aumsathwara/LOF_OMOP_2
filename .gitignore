@@ -10,6 +10,7 @@ etl_omop/
 R/
 
 
+
 # Ignore large files in vocabulary_csv and vocabulary_download directories
 vocabulary_csv/
 

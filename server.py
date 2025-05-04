@@ -147,6 +147,7 @@ def ensure_schemas() -> list:
 )
 def run_etl() -> list:
     try:
+        # Start the background task for ETL pipline
         process = multiprocessing.Process(target = pipeline.run_etl_process)
         process.start()  
         return [{"type": "text", "text": "ETL process started in the background..."}]
@@ -160,7 +161,9 @@ def run_etl() -> list:
 )
 def run_sql_file(filepath: str) -> list:
     try:
-        pipeline.run_sql_file(filepath)
+        # Start the background task for SQL queries
+        process = multiprocessing.Process(target= pipeline.run_sql_file(filepath))
+        process.start()
         return [{"type": "text", "text": f"SQL file '{filepath}' executed successfully."}]
     except Exception as e:
         return [{"type": "text", "text": f"Error executing SQL file '{filepath}': {str(e)}"}]
@@ -173,8 +176,10 @@ def run_sql_file(filepath: str) -> list:
 )
 def run_achilles() -> list:
     try:
-        pipeline.run_achilles()
-        return [{"type": "text", "text": "Achilles analysis completed successfully."}]
+        # Start the background task for Achilles
+        process = multiprocessing.Process(target= pipeline.run_achilles)
+        process.start()
+        return [{"type": "text", "text": "Achilles analysis started in background."}]
     except Exception as e:
         return [{"type": "text", "text": f"Error running Achilles: {str(e)}"}]
 
@@ -196,8 +201,10 @@ def run_dqd_checks():
 )
 def run_all() -> list:
     try:
-        pipeline.run_all()
-        return [{"type": "text", "text": "Full pipeline executed successfully."}]
+        # Start the background task for all together
+        process = multiprocessing.Process(target= pipeline.run_all)
+        process.start() 
+        return [{"type": "text", "text": "Full pipeline execution started in background."}]
     except Exception as e:
         return [{"type": "text", "text": f"Error running full pipeline: {str(e)}"}]
 

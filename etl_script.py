@@ -45,8 +45,8 @@ class OmopPipeline:
         self.vocab_csv = "vocabulary_csv"
         self.output_path = "output"
 
-        self.sql_file_schema = "results_schema.sql"
-        self.sql_file_counts = "concept_counts.sql"
+        self.sql_file_schema = "SQLs/results_schema.sql"
+        self.sql_file_counts = "SQLs/concept_counts.sql"
 
         self.required_schemas = ["cdm54", "synthea", "results"]
 
