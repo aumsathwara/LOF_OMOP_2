@@ -99,6 +99,10 @@ def plot_query(
         elif chart_type == "heatmap":
             pivot = df.pivot(index=y_field, columns=x_field, values="value")
             sns.heatmap(pivot, annot=True, fmt=".0f", ax=ax)
+        elif chart_type == "scatter":
+            ax.scatter(df[x_field], df[y_field])
+            ax.set_xlabel(x_field)
+            ax.set_ylabel(y_field) 
         else:
             return [{"type": "text", "text": f"Unknown chart_type: {chart_type}"}]
 
